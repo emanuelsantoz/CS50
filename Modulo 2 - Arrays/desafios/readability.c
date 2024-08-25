@@ -1,33 +1,3 @@
-#include <stdio.h>
-#include <cs50.h>
-#include <ctype.h>
-#include <string.h>
-
-int main(void)
-{
-    // Input | pedir um texto para o usuario
-    string text = get_string("Text: ");
-    int totalLetter ;
-    int totalPalavra ;
-    int totalFrase;
-
-    // Calculo | Numero medio a cada 100 por letra L
-
-
-    // Calculo | numero medio a cada 100 sentaça S
-
-
-    // Calculo | Formula Coleman-Liau
-
-    // Saída | Resultado da fomra
-    printf("Grand ", );
-}
-
-int totalThings(string word){
-
-}
-
-
 #include <cs50.h>
 #include <ctype.h>
 #include <math.h>
@@ -35,7 +5,7 @@ int totalThings(string word){
 #include <string.h>
 
 double average(int number, int words);
-int coleman_liau(double L, double S);
+float coleman_liau(double L, double S);
 
 int main(void)
 {
@@ -65,11 +35,11 @@ int main(void)
     }
 
     // Calculo | Medio a cada 100 por letra e sentaça L e S
-    double l = average(totalLetter, totalPalavra);
-    double s = average(4, totalPalavra);
+    float l = average(totalLetter, totalPalavra);
+    float s = average(totalFrase, totalPalavra);
 
     // Calculo final | Formula Coleman-Liau
-    int formula = coleman_liau(l, s);
+    int formula = round(coleman_liau(l, s));
 
     // Saída | Resultado da fomra
     if (formula < 2)
@@ -82,7 +52,7 @@ int main(void)
     }
     else
     {
-        printf("Grand %i\n", (formula));
+        printf("Grand %d\n", (formula));
     }
 }
 
@@ -92,11 +62,11 @@ double average(int number, int words)
     return indexAverage;
 }
 
-int coleman_liau(double L, double S)
+float coleman_liau(double L, double S)
 {
-    printf("L: %f | S: %f\n", L, S);
-    int index = (0.0588 * L) - (0.296 * S) - 15.8;
+    // printf("L: %f | S: %f\n", L, S);
+    float index = (0.0588 * L) - (0.296 * S) - 15.8;
 
-    printf("Index: %d\n", index);
+    // printf("Index: %f\n", round(index));
     return index;
 }
